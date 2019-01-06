@@ -1,32 +1,220 @@
-.App {
+:root {
+  --myColor-white: #f2ebeb;
+  --myColor-red: #d73838;
+  --myColor-grey: #474c57;
+}
+
+html {
+  background-color: var(--myColor-red);
+  font-size: 62.5%;
+  padding: 0;
+  margin: 0;
+}
+
+.logo {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  text-transform: uppercase;
+  color: var(--myColor-white);
+  font-size: 6rem;
+  font-weight: 600;
+  line-height: 5.3rem;
+  text-shadow: 5px 5px var(--myColor-grey);
+  display: inline-block;
+
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 1.2rem 1.2rem;
+}
+
+.input-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-bottom: 2.6rem;
+}
+
+.input-box {
+  display: inline-block;
+  grid-column-start: 4;
+  grid-column-end: 11;
+  align-self: center;
+}
+
+.input {
+  width: 100%;
+  height: 8.5rem;
+  transform: translateY(-5%);
+
+  border-radius: 5px;
+  padding: 1rem;
+
+  /* background-color: var(--myColor-white); */
+  border: none;
+  font-size: 3.8rem;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0.2rem 1rem var(--myColor-grey);
+}
+
+::-webkit-input-placeholder {
+  opacity: 0.6;
+  /* padding-left: 20px; */
+}
+
+.output-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .output-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+  }
+  .logo {
+    font-size: 5rem;
+    font-weight: 600;
+    line-height: 4.8rem;
+    text-shadow: 4px 4.5px var(--myColor-grey);
+    display: inline-block;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 0.8rem 1rem;
+  }
+
+  .input-container {
+    margin-bottom: 1.4rem;
+  }
+  .input {
+    height: 7.5rem;
+
+    font-size: 3.3rem;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .logo {
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 3.7rem;
+    text-shadow: 3.3px 3.8px var(--myColor-grey);
+    display: inline-block;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 0.8rem 1rem;
+  }
+
+  .output-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .input-box {
+    grid-column-start: 5;
+    grid-column-end: 11;
+  }
+
+  .input {
+    height: 5rem;
+    width: 100%;
+
+    font-size: 2.6rem;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .output-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .input-box {
+    grid-column-start: 6;
+    grid-column-end: 11;
+  }
+
+  .input {
+    height: 4rem;
+    width: 110%;
+
+    font-size: 2.6rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .logo {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 2.8rem;
+    text-shadow: 3.3px 3.8px var(--myColor-grey);
+    display: inline-block;
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 0.3rem 0.4rem;
+  }
+  .input-box {
+    grid-column-start: 6;
+    grid-column-end: 11;
+  }
+
+  .input {
+    height: 2.6rem;
+    width: 110%;
+
+    font-size: 2.2rem;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .output-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.output-window {
+  background-color: white;
+  font-size: 1rem;
+
+  border-radius: 3px;
+  max-width: 100%;
+  height: 13rem;
+  position: relative;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  padding: 0 1rem;
+  box-shadow: 0 0.2rem 1rem var(--myColor-grey);
+}
+
+.output-font-text {
+  /* position: absolute;
+
+  left: 50%;
+  transform: translateX(-50%); */
+
   text-align: center;
+  font-size: 2rem;
+  height: 74%;
+  padding-top: 1rem;
+  overflow: hidden;
+  line-height: 1.7rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 1000px) {
+  .output-font-text {
+    /* font-size: 1.5rem;
+    padding-top: 2rem; */
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.output-font-title {
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--myColor-grey);
+  text-align: center;
+  font-size: 1.2rem;
 }
